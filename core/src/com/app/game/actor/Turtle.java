@@ -1,6 +1,8 @@
 package com.app.game.actor;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 
 public class Turtle extends BaseActor {
 
@@ -13,8 +15,38 @@ public class Turtle extends BaseActor {
                         "turtle-4.png", "turtle-5.png", "turtle-6.png"};
 
         loadAnimationFronFiles(filenames, 0.1f, true);
+
+        setAcceleration(400);
+        setMaxSpeed(100);
+        setDeceleration(400);
+
     }
 
+
+    @Override
+    public void act(float dt) {
+        super.act(dt);
+
+        // check user input
+        if (Gdx.input.isKeyPressed(Keys.LEFT))
+            accelerateAtAngle(180);
+        if (Gdx.input.isKeyPressed(Keys.RIGHT))
+            accelerateAtAngle(0);
+        if (Gdx.input.isKeyPressed(Keys.UP))
+            accelerateAtAngle(90);
+        if (Gdx.input.isKeyPressed(Keys.DOWN))
+            accelerateAtAngle(270);
+
+
+        applyPhysics(dt);
+
+        setAnimationPaused( !isMoving() );
+
+        if( getSpeed() > 0 )
+            setRotation( getMotionAngle() );
+
+
+    }
 }
 
 

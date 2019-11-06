@@ -9,6 +9,10 @@ import com.badlogic.gdx.graphics.Texture;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 
+
+/**
+ * @deprecated
+ */
 public class StarFishCollectorAlpha extends BaseScreen{
 
 
