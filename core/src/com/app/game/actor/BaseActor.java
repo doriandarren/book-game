@@ -32,11 +32,7 @@ public class BaseActor extends Actor {
     private float acceleration;
     private float maxSpeed;
     private float deceleration;
-
-
-
-
-
+    
 
 
 
